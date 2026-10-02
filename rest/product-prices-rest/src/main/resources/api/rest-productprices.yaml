@@ -53,7 +53,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProductPriceRetrieved'
         '400':
-          description: Invalid data supplied
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                code: INVALID_PRODUCT_PRICE_REQUEST
+                message: "Datetime, productId and brandId cannot be null"
+        '404':
+          description: Product price not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                code: PRODUCT_PRICE_NOT_FOUND
+                message: "There is no product price for the given criteria"
+        '500':
+          description: Unexpected internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 500
+                code: INTERNAL_SERVER_ERROR
+                message: "An unexpected error occurred"
 components:
   schemas:
     ProductPriceRetrieved:
@@ -87,4 +115,25 @@ components:
           type: string
           format: date-time
           example: "2026-09-30T10:47:00"
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP status code
+          example: 400
+        code:
+          type: string
+          description: Application-specific error code
+          example: INVALID_PRODUCT_PRICE_REQUEST
+        message:
+          type: string
+          description: Human-readable error message
+          example: "Datetime, productId and brandId cannot be null"
 

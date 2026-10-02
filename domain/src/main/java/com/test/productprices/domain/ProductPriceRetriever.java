@@ -1,5 +1,6 @@
 package com.test.productprices.domain;
 
+import com.test.productprices.domain.exception.InvalidProductPriceRequestException;
 import com.test.productprices.domain.repository.ProductPriceRepository;
 import com.test.productprices.model.ProductPrice;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Retriever to obtain product prices.
+ */
 @AllArgsConstructor
 @Component
 public class ProductPriceRetriever {
@@ -25,7 +29,7 @@ public class ProductPriceRetriever {
      */
     public Optional<ProductPrice> getProductPrice(LocalDateTime date, Long brandId, Long productId) {
         if (date == null || brandId == null || productId == null) {
-            throw new RuntimeException("Date, brandId and productId cannot be null");
+            throw new InvalidProductPriceRequestException("Date, brandId and productId cannot be null");
         }
 
         List<ProductPrice> productPriceList = productPriceRepository.getProductPrice(date, productId, brandId);

@@ -6,6 +6,9 @@ import lombok.Getter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * The product price aggregate.
+ */
 @Builder
 @Getter
 public class ProductPrice {

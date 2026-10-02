@@ -13,6 +13,9 @@ import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * H2 implementation to obtain the product price data.
+ */
 @AllArgsConstructor
 @Component
 public class H2ProductPriceRepository implements ProductPriceRepository {
@@ -24,10 +27,6 @@ public class H2ProductPriceRepository implements ProductPriceRepository {
     @Override
     @Transactional(readOnly = true)
     public List<ProductPrice> getProductPrice(LocalDateTime datetime, Long productId, Long brandId) {
-            if (datetime == null || productId == null || brandId == null) {
-            throw new RuntimeException("Datetime, productId and brandId cannot be null");
-        }
-
         return jdbcTemplate.query(buildGetPreparedStatement(datetime, productId, brandId), productPriceExtractor);
     }
 

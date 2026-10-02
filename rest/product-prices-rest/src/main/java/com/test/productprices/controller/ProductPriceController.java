@@ -1,5 +1,6 @@
 package com.test.productprices.controller;
 
+import com.test.productprices.controller.exception.ProductPriceNotFoundException;
 import com.test.productprices.controller.mapper.ProductPriceMapper;
 import com.test.productprices.domain.ProductPriceRetriever;
 import com.test.productprices.model.ProductPrice;
@@ -28,7 +29,7 @@ public class ProductPriceController implements com.test.productprices.api.Produc
     ) {
         Optional<ProductPrice> productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
         if (productPrice.isEmpty()) {
-            throw new RuntimeException("There is no product price retrieved");
+            throw new ProductPriceNotFoundException("There is no product price retrieved");
         }
 
         return new ResponseEntity<>(ProductPriceMapper.toProductPriceDto(productPrice.get()), HttpStatus.OK);

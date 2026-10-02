@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Extractor to obtain product price data.
+ */
 @Component
 public class ProductPriceExtractor implements ResultSetExtractor<List<ProductPrice>> {
 
