@@ -9,13 +9,13 @@ info:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: productprices
+  - name: prices
     description: Everything about product prices
 paths:
-  /product-prices:
+  /prices:
     get:
       tags:
-        - productprices
+        - prices
       summary: Retrieve the product price that match with params used in the query
       description: >-
         Returns the product price that match with datetime, productId and brandId
@@ -51,7 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductPriceRetrieved'
+                $ref: '#/components/schemas/PriceRetrieved'
         '400':
           description: Invalid request data
           content:
@@ -84,7 +84,7 @@ paths:
                 message: "An unexpected error occurred"
 components:
   schemas:
-    ProductPriceRetrieved:
+    PriceRetrieved:
       type: object
       additionalProperties: false
       required:

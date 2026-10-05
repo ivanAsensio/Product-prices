@@ -20,7 +20,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrices_Day14_1000() throws Exception {
-        mockMvc.perform(get("/product-prices?datetime=2020-06-14T10:00:00&productId=35455&brandId=1")
+        mockMvc.perform(get("/prices?datetime=2020-06-14T10:00:00&productId=35455&brandId=1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -29,7 +29,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrices_Day14_1600() throws Exception {
-        mockMvc.perform(get("/product-prices?datetime=2020-06-14T16:00:00&productId=35455&brandId=1")
+        mockMvc.perform(get("/prices?datetime=2020-06-14T16:00:00&productId=35455&brandId=1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -38,7 +38,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrices_Day14_2100() throws Exception {
-        mockMvc.perform(get("/product-prices?datetime=2020-06-14T21:00:00&productId=35455&brandId=1")
+        mockMvc.perform(get("/prices?datetime=2020-06-14T21:00:00&productId=35455&brandId=1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -47,7 +47,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrices_Day15_1000() throws Exception {
-        mockMvc.perform(get("/product-prices?datetime=2020-06-15T10:00:00&productId=35455&brandId=1")
+        mockMvc.perform(get("/prices?datetime=2020-06-15T10:00:00&productId=35455&brandId=1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -56,7 +56,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrices_Day16_2100() throws Exception {
-        mockMvc.perform(get("/product-prices?datetime=2020-06-16T21:00:00&productId=35455&brandId=1")
+        mockMvc.perform(get("/prices?datetime=2020-06-16T21:00:00&productId=35455&brandId=1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))

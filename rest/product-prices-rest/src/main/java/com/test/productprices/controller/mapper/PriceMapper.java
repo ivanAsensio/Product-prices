@@ -1,22 +1,22 @@
 package com.test.productprices.controller.mapper;
 
+import com.test.productprices.domain.PriceRetrieved;
 import com.test.productprices.domain.ProductPrice;
-import com.test.productprices.domain.ProductPriceRetrieved;
 import lombok.NoArgsConstructor;
 
 /**
- * Mapper to create ProductPriceRetrieved objects.
+ * Mapper to create PriceRetrieved objects.
  */
 @NoArgsConstructor
-public class ProductPriceMapper {
+public class PriceMapper {
 
     /**
-     * Create a new ProductPriceRetrieved using a ProductPrice as reference.
+     * Create a new PriceRetrieved using a ProductPrice as reference.
      * @param productPrice the product price
      * @return the new product price retrieved.
      */
-    public static ProductPriceRetrieved toProductPriceDto(ProductPrice productPrice) {
-        ProductPriceRetrieved response = new ProductPriceRetrieved();
+    public static PriceRetrieved toProductPriceDto(ProductPrice productPrice) {
+        PriceRetrieved response = new PriceRetrieved();
         response.setPrice(productPrice.getPrice());
         response.setCurrency(productPrice.getCurrency());
         response.setProductId(productPrice.getProductId());
