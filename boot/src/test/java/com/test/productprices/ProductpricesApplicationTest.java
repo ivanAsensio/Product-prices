@@ -65,19 +65,19 @@ class ProductpricesApplicationTest {
 
 
     private static final String JSON_EXPECTED_T1 = """
-        {"productId":35455,"brandId":1,"price":35.50,"startDate":"2020-06-14T00:00:00","endDate":"2020-12-31T23:59:59"}
+        {"productId":35455,"brandId":1,"price":35.50,"startDate":"2020-06-14T00:00:00","endDate":"2020-12-31T23:59:59","currency":"EUR","feeId":1}
     """;
 
     private static final String JSON_EXPECTED_T2 = """
-        {"productId":35455,"brandId":1,"price":25.45,"startDate":"2020-06-14T15:00:00","endDate":"2020-06-14T18:30:00"}
+        {"productId":35455,"brandId":1,"price":25.45,"startDate":"2020-06-14T15:00:00","endDate":"2020-06-14T18:30:00","currency":"EUR","feeId":2}
     """;
 
     private static final String JSON_EXPECTED_T3 = """
-        {"productId":35455,"brandId":1,"price":30.50,"startDate":"2020-06-15T00:00:00","endDate":"2020-06-15T11:00:00"}
+        {"productId":35455,"brandId":1,"price":30.50,"startDate":"2020-06-15T00:00:00","endDate":"2020-06-15T11:00:00","currency":"EUR","feeId":3}
     """;
 
     private static final String JSON_EXPECTED_T4 = """
-        {"productId":35455,"brandId":1,"price":38.95,"startDate":"2020-06-15T16:00:00","endDate":"2020-12-31T23:59:59"}
+       {"productId":35455,"brandId":1,"price":38.95,"startDate":"2020-06-15T16:00:00","endDate":"2020-12-31T23:59:59","currency":"EUR","feeId":4}
     """;
   
 }

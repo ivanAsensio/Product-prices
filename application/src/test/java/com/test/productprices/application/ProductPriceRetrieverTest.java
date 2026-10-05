@@ -1,8 +1,10 @@
-package com.test.productprices.domain;
+package com.test.productprices.application;
 
-import com.test.productprices.domain.exception.InvalidProductPriceRequestException;
+import com.test.productprices.application.exception.InvalidProductPriceRequestException;
+import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.domain.repository.ProductPriceRepository;
-import com.test.productprices.model.ProductPrice;
+import com.test.productprices.domain.ProductPrice;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,25 +42,21 @@ class ProductPriceRetrieverTest {
     }
 
     @Test
-    void test_getProductPrice_emptyList_ok() {
+    void test_getProductPrice_empty() {
         // Given
         LocalDateTime date = LocalDateTime.of(2020, 6, 14, 16, 0);
         Long brandId = 1L;
         Long productId = 35455L;
 
         Mockito.when(productPriceRepository.getProductPrice(date, productId, brandId))
-                .thenReturn(List.of());
+                .thenReturn(Optional.empty());
 
-        // When
-        Optional<ProductPrice> productPrice =
-                productPriceRetriever.getProductPrice(date, brandId, productId);
-
-        // Then
-        assertTrue(productPrice.isEmpty());
+        // When and Then
+        Assertions.assertThrows(ProductPriceNotFoundException.class, () -> productPriceRetriever.getProductPrice(date, brandId, productId));
     }
 
     @Test
-    void test_getProductPrice_singlePrice_ok() {
+    void test_getProductPrice_price_ok() {
         // Given
         LocalDateTime date = LocalDateTime.of(2020, 6, 14, 16, 0);
         Long brandId = 1L;
@@ -68,38 +65,14 @@ class ProductPriceRetrieverTest {
         ProductPrice productPrice = ProductPrice.builder().price(BigDecimal.ONE).priority(1).build();
 
         Mockito.when(productPriceRepository.getProductPrice(date, productId, brandId))
-                .thenReturn(List.of(productPrice));
+                .thenReturn(Optional.of(productPrice));
 
         // When
-        Optional<ProductPrice> productPriceRetrieved =
+        ProductPrice productPriceRetrieved =
                 productPriceRetriever.getProductPrice(date, brandId, productId);
 
         // Then
-        assertTrue(productPriceRetrieved.isPresent());
-        assertEquals(productPrice, productPriceRetrieved.get());
-    }
-
-    @Test
-    void test_getProductPrice_highestPriority_ok() {
-        // Given
-        LocalDateTime date = LocalDateTime.of(2020, 6, 14, 16, 0);
-        Long brandId = 1L;
-        Long productId = 35455L;
-
-        ProductPrice lowPriorityPrice = ProductPrice.builder().price(BigDecimal.ZERO).priority(1).build();
-
-        ProductPrice highPriorityPrice = ProductPrice.builder().price(BigDecimal.ONE).priority(2).build();
-
-        Mockito.when(productPriceRepository.getProductPrice(date, productId, brandId))
-                .thenReturn(List.of(lowPriorityPrice, highPriorityPrice));
-
-        // When
-        Optional<ProductPrice> productPriceRetrieved =
-                productPriceRetriever.getProductPrice(date, brandId, productId);
-
-        // Then
-        assertTrue(productPriceRetrieved.isPresent());
-        assertEquals(highPriorityPrice, productPriceRetrieved.get());
+        assertEquals(productPrice, productPriceRetrieved);
     }
   
 }

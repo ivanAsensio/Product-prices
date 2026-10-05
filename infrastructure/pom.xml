@@ -21,13 +21,13 @@
         </dependency>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>application</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

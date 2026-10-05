@@ -1,4 +1,4 @@
-package com.test.productprices.model;
+package com.test.productprices.domain;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +19,7 @@ public class ProductPrice {
 
     private LocalDateTime endDate;
 
-    private Long priceList;
+    private Long feeId;
 
     private Long productId;
 

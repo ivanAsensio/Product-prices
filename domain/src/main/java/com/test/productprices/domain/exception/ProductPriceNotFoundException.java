@@ -1,4 +1,4 @@
-package com.test.productprices.controller.exception;
+package com.test.productprices.domain.exception;
 
 /**
  * Exception dedicated to represent when a product price cannot be found.

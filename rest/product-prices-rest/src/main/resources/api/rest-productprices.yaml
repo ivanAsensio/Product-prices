@@ -107,6 +107,13 @@ components:
           format: double
           x-field-type: BigDecimal
           example: 99.99
+        currency:
+          type: string
+          example: "EUR"
+        feeId:
+          type: integer
+          format: int64
+          example: 1
         startDate:
           type: string
           format: date-time

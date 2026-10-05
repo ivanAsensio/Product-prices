@@ -23,8 +23,8 @@
 	</developers>
     <modules>
         <module>boot</module>
+		<module>application</module>
 		<module>domain</module>
-		<module>model</module>
 		<module>infrastructure</module>
 		<module>rest</module>
 	</modules>

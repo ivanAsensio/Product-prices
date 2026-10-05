@@ -1,10 +1,10 @@
 package com.test.productprices.controller;
 
-import com.test.productprices.controller.exception.ProductPriceNotFoundException;
+import com.test.productprices.application.ProductPriceRetriever;
+import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.controller.mapper.ProductPriceMapper;
-import com.test.productprices.domain.ProductPriceRetriever;
-import com.test.productprices.model.ProductPrice;
-import com.test.productprices.model.ProductPriceRetrieved;
+import com.test.productprices.domain.ProductPrice;
+import com.test.productprices.domain.ProductPriceRetrieved;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -27,12 +27,9 @@ public class ProductPriceController implements com.test.productprices.api.Produc
             @RequestParam(value = "productId") Long productId,
             @RequestParam(value = "brandId") Long brandId
     ) {
-        Optional<ProductPrice> productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
-        if (productPrice.isEmpty()) {
-            throw new ProductPriceNotFoundException("There is no product price retrieved");
-        }
+        ProductPrice productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
 
-        return new ResponseEntity<>(ProductPriceMapper.toProductPriceDto(productPrice.get()), HttpStatus.OK);
+        return new ResponseEntity<>(ProductPriceMapper.toProductPriceDto(productPrice), HttpStatus.OK);
     }
 
 }

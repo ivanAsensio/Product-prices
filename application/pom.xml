@@ -6,7 +6,15 @@
         <artifactId>productprices</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>model</artifactId>
-    <name>Archetype - model</name>
+    <artifactId>application</artifactId>
+    <name>Archetype - domain</name>
     <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>com.test</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>

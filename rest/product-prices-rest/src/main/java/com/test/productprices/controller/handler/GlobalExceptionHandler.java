@@ -1,8 +1,8 @@
 package com.test.productprices.controller.handler;
 
-import com.test.productprices.controller.exception.ProductPriceNotFoundException;
-import com.test.productprices.domain.exception.InvalidProductPriceRequestException;
-import com.test.productprices.model.ErrorResponse;
+import com.test.productprices.domain.exception.ProductPriceNotFoundException;
+import com.test.productprices.application.exception.InvalidProductPriceRequestException;
+import com.test.productprices.domain.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

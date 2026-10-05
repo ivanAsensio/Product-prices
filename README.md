@@ -76,44 +76,32 @@ GET /product-prices?datetime=2020-06-14T16:00:00&productId=35455&brandId=1
 
 ### Architecture
 
-The application follows a **Hexagonal Architecture (Ports and Adapters)** approach, keeping the business logic isolated from external technologies and infrastructure concerns.
+The project follows a Hexagonal Architecture (Ports & Adapters).
 
-The project is divided into the following modules:
+The modules are organized as follows:
 
-#### `model`
+- model:
+  Contains the domain model: entities, value objects and business concepts.
+  It has no dependency on infrastructure or frameworks.
 
-Contains the core business logic and domain models.
+- domain:
+  Contains the application/domain logic and use cases.
+  It defines the ports required by the domain/application layer.
+  It does not depend on infrastructure implementations.
 
-- Defines the business entities and domain rules.
-- Has no dependency on frameworks or infrastructure.
-- Represents the core of the application.
+- infrastructure:
+  Contains infrastructure adapters and technical implementations,
+  such as database persistence.
 
-#### `domain`
+- rest:
+  Contains the REST API adapter and OpenAPI-generated contracts/models.
+  Although REST is conceptually an inbound adapter in Hexagonal Architecture,
+  it is kept as a separate module to isolate the API contract and generated
+  code from the rest of the infrastructure implementation.
 
-Contains the application use cases and orchestration logic.
+- boot
+  Contains application bootstrap and dependency wiring.
 
-- Defines the application use cases.
-- Coordinates the domain logic.
-- Defines the ports required to interact with external systems.
-- Does not depend directly on infrastructure implementations.
-
-#### `infrastructure`
-
-Contains the implementations of the ports required to interact with external technologies.
-
-- Provides persistence implementations.
-- Contains infrastructure-specific components and configuration.
-- Implements the output ports defined by the application layer.
-
-#### `rest`
-
-Contains the REST API adapter and exposes the application's use cases through HTTP.
-
-- Defines the REST controllers and API models.
-- Acts as an inbound adapter in the Hexagonal Architecture.
-- Depends on the application layer to execute use cases.
-
-Although the REST adapter conceptually belongs to the infrastructure side of the Hexagonal Architecture, it is kept in a dedicated `rest` module as a technical decision. This separation allows the API to be generated and managed independently for each module.
 
 ### Database Access
 

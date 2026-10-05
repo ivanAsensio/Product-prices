@@ -40,13 +40,13 @@
 
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>application</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -68,7 +68,7 @@
                             </inputSpec>
                             <generatorName>spring</generatorName>
                             <apiPackage>com.test.productprices.api</apiPackage>
-                            <modelPackage>com.test.productprices.model</modelPackage>
+                            <modelPackage>com.test.productprices.domain</modelPackage>
                             <generateApiTests>false</generateApiTests>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
