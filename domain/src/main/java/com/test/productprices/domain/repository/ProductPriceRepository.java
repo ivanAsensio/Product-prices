@@ -3,7 +3,6 @@ package com.test.productprices.domain.repository;
 import com.test.productprices.domain.ProductPrice;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 /**
