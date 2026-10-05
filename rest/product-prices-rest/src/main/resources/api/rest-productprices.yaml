@@ -12,7 +12,7 @@ tags:
   - name: prices
     description: Everything about product prices
 paths:
-  /prices:
+  /v1/prices:
     get:
       tags:
         - prices

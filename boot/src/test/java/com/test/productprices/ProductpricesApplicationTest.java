@@ -21,7 +21,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test1_retrieveProductPrice_Day14_1000() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "2020-06-14T10:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")
@@ -39,7 +39,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test2_retrieveProductPrice_Day14_1600() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "2020-06-14T16:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")
@@ -57,7 +57,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test3_retrieveProductPrice_Day14_2100() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "2020-06-14T21:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")
@@ -75,7 +75,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test4_retrieveProductPrice_Day15_1000() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "2020-06-15T10:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")
@@ -93,7 +93,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test5_retrieveProductPrice_Day16_2100() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "2020-06-16T21:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")
@@ -111,7 +111,7 @@ class ProductpricesApplicationTest {
 
     @Test
     void test_retrieveProductPrice_NotFound() throws Exception {
-        mockMvc.perform(get("/prices")
+        mockMvc.perform(get("/v1/prices")
                         .param("datetime", "1999-01-01T10:00:00")
                         .param("productId", "35455")
                         .param("brandId", "1")

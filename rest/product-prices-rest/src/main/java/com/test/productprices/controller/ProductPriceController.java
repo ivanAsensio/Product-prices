@@ -1,5 +1,6 @@
 package com.test.productprices.controller;
 
+import com.test.productprices.api.PricesApi;
 import com.test.productprices.application.ProductPriceRetriever;
 import com.test.productprices.controller.mapper.PriceMapper;
 import com.test.productprices.domain.PriceRetrieved;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @AllArgsConstructor
-public class ProductPriceController implements com.test.productprices.api.PricesApi {
+public class ProductPriceController implements PricesApi {
 
     private final ProductPriceRetriever productPriceRetriever;
 

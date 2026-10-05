@@ -74,6 +74,7 @@
                                 <delegatePattern>true</delegatePattern>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <interfaceOnly>true</interfaceOnly>
+                                <useTags>true</useTags>
                             </configOptions>
 
                             <typeMappings>
