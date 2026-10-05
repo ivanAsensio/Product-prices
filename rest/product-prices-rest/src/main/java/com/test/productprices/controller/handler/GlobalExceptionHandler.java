@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * The exception handler for ProductPrice REST API.
  */
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.test.productprices.controller")
 public class GlobalExceptionHandler {
 
     private static final String PRODUCT_PRICE_NOT_FOUND_CODE =
