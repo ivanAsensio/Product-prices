@@ -23,6 +23,7 @@ class ProductPriceTest {
 
         // When
         ProductPrice productPrice = ProductPrice.builder()
+                .id(1L)
                 .brandId(expectedBrandId)
                 .startDate(expectedStartDate)
                 .endDate(expectedEndDate)

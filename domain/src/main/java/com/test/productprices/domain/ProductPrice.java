@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @Getter
 public class ProductPrice {
 
+    private Long id;
+
     private Long brandId;
 
     private LocalDateTime startDate;

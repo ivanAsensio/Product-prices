@@ -22,6 +22,7 @@ public class ProductPriceExtractor implements ResultSetExtractor<Optional<Produc
             return Optional.empty();
         }
         return Optional.of(ProductPrice.builder()
+                    .id(rs.getLong("PRODUCT_PRICE_ID"))
                     .productId(rs.getLong("PRODUCT_ID"))
                     .brandId(rs.getLong("BRAND_ID"))
                     .price(rs.getBigDecimal("PRICE"))
