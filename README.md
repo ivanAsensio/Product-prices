@@ -95,6 +95,8 @@ The modules are organized as follows:
 - `boot`:
   Contains application bootstrapping, Spring Boot configuration, and dependency wiring across all modules.
 
+- `coverage`:
+  A technical support module used to generate the aggregated JaCoCo test coverage report across the project modules. It is not part of the application runtime or the hexagonal architecture itself.
 
 ### Database Access
 
@@ -189,6 +191,25 @@ Integration tests are located in the `boot` module and validate the application 
 These tests start the Spring Boot application and verify the complete flow, including the REST layer, application logic and persistence integration.
 
 The integration tests cover the scenarios defined in the exercise requirements, validating the responses indicated on the statement.
+
+### Code Coverage
+
+The project uses JaCoCo to measure test coverage across the different modules.
+
+To generate the aggregated coverage report, run the following command from the project root:
+
+```bash
+mvn clean verify
+```
+
+The aggregated JaCoCo report will be generated at:
+
+```text
+coverage/target/site/jacoco-aggregate/index.html
+```
+
+The report includes the coverage of the project modules, excluding OpenAPI-generated classes from the REST module, since this code is generated automatically and is not part of the manually implemented code.
+
 
 ### Product Price Retrieval Flow
 
