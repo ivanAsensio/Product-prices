@@ -196,3 +196,18 @@ The following diagram illustrates the flow used to retrieve the applicable produ
 
 ![Product Price Retrieval Flow](docs/ProductPriceRetrieve.drawio.png)
 
+### 🚀 Future Improvements and Roadmap
+
+Although the current solution fully satisfies all functional, architectural, and performance requirements, the following improvements have been identified to prepare the service for a large-scale production environment:
+
+#### 1. Observability and Monitoring
+* **Distributed Tracing & Metrics:** Integration of **Micrometer** and **Zipkin/Sleuth** to collect performance metrics at entry/exit points and enable distributed request tracing.
+* **Structured Logging:** JSON-formatted logging configuration to streamline log ingestion into ELK stacks (Elasticsearch, Logstash, Kibana) or Grafana Loki.
+
+#### 2. Caching and Performance
+* **Caching Strategy:** Implementation of a second-level cache or distributed in-memory store (e.g., **Redis** or **Caffeine**) for high-frequency price queries, reducing database load for products and brands with low price variance.
+
+#### 3. Domain Write Operations & Entity Management (CRUD)
+* **Price Management Endpoints:** Implementation of write-side use cases (commands) to support adding, updating, and soft-deleting product prices (`POST /prices`, `PUT /prices/{id}`, `DELETE /prices/{id}`).
+* **Domain Validation & Invariants:** Enforcing domain business rules for price creation (e.g., overlapping date range validations, priority conflict resolution, and price consistency checks).
+
