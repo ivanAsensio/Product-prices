@@ -4,7 +4,7 @@ import com.test.productprices.api.PricesApi;
 import com.test.productprices.application.ProductPriceRetriever;
 import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.controller.mapper.PriceMapper;
-import com.test.productprices.domain.PriceRetrieved;
+import com.test.productprices.rest.dto.PriceRetrieved;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;

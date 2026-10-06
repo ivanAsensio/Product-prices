@@ -3,7 +3,7 @@ package com.test.productprices.application;
 import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.application.mapper.ProductPriceQueryMapper;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
-import com.test.productprices.domain.repository.ProductPriceRepository;
+import com.test.productprices.application.repository.ProductPriceRepository;
 import com.test.productprices.domain.ProductPrice;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

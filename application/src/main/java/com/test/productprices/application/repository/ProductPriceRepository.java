@@ -1,4 +1,4 @@
-package com.test.productprices.domain.repository;
+package com.test.productprices.application.repository;
 
 import com.test.productprices.domain.ProductPrice;
 

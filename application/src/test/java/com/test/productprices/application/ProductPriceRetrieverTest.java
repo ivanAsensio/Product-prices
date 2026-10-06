@@ -2,7 +2,7 @@ package com.test.productprices.application;
 
 import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
-import com.test.productprices.domain.repository.ProductPriceRepository;
+import com.test.productprices.application.repository.ProductPriceRepository;
 import com.test.productprices.domain.ProductPrice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

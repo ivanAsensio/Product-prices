@@ -2,8 +2,8 @@ package com.test.productprices.controller;
 
 import com.test.productprices.application.ProductPriceRetriever;
 import com.test.productprices.application.dto.ProductPriceQueryDto;
-import com.test.productprices.domain.PriceRetrieved;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
+import com.test.productprices.rest.dto.PriceRetrieved;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

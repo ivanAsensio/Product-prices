@@ -68,7 +68,7 @@
                             </inputSpec>
                             <generatorName>spring</generatorName>
                             <apiPackage>com.test.productprices.api</apiPackage>
-                            <modelPackage>com.test.productprices.domain</modelPackage>
+                            <modelPackage>com.test.productprices.rest.dto</modelPackage>
                             <generateApiTests>false</generateApiTests>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>

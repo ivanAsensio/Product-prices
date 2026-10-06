@@ -1,6 +1,6 @@
 package com.test.productprices.infrastructure.repository;
 
-import com.test.productprices.domain.repository.ProductPriceRepository;
+import com.test.productprices.application.repository.ProductPriceRepository;
 import com.test.productprices.infrastructure.repository.queries.ProductPriceQueries;
 import com.test.productprices.domain.ProductPrice;
 import lombok.AllArgsConstructor;
