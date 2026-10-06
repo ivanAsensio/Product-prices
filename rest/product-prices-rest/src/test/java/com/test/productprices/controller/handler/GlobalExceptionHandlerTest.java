@@ -62,7 +62,7 @@ class GlobalExceptionHandlerTest {
     @Test
     void test_handleException() {
         // Given & When
-        ResponseEntity<ErrorResponse> response = globalExceptionHandler.handleException();
+        ResponseEntity<ErrorResponse> response = globalExceptionHandler.handleException(new RuntimeException());
 
         // Then
         assertNotNull(response);
