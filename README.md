@@ -222,8 +222,8 @@ The following diagram illustrates the flow used to retrieve the applicable produ
 Although the current solution fully satisfies all functional, architectural, and performance requirements, the following improvements have been identified to prepare the service for a large-scale production environment:
 
 #### 1. Observability and Monitoring
-* **Distributed Tracing & Metrics:** Integration of **Micrometer** and **Zipkin/Sleuth** to collect performance metrics at entry/exit points and enable distributed request tracing.
 * **Structured Logging:** JSON-formatted logging configuration to streamline log ingestion into ELK stacks (Elasticsearch, Logstash, Kibana) or Grafana Loki.
+* **Monitoring:** Metrics ingestion using Prometheus and creation of dashboards using Grafana.
 
 #### 2. Caching and Performance
 * **Caching Strategy:** Implementation of a second-level cache or distributed in-memory store (e.g., **Redis** or **Caffeine**) for high-frequency price queries, reducing database load for products and brands with low price variance.
