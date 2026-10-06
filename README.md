@@ -30,14 +30,14 @@ mvn spring-boot:run
 Once the application is running, the REST API is available at:
 
 ```text
-http://localhost:8080/prices
+http://localhost:8080/v1/prices
 ```
 
 ## API
 
 ### Get product price
 
-GET /prices?datetime={datetime}&productId={productId}&brandId={brandId}
+GET /v1/prices?datetime={datetime}&productId={productId}&brandId={brandId}
 
 #### Parameters
 
@@ -49,7 +49,7 @@ GET /prices?datetime={datetime}&productId={productId}&brandId={brandId}
 
 #### Example
 
-GET /prices?datetime=2020-06-14T16:00:00&productId=35455&brandId=1
+GET /v1/prices?datetime=2020-06-14T16:00:00&productId=35455&brandId=1
 
 #### Response
 
