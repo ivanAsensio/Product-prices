@@ -1,7 +1,6 @@
 package com.test.productprices.application;
 
 import com.test.productprices.application.dto.ProductPriceQueryDto;
-import com.test.productprices.application.exception.InvalidProductPriceRequestException;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.domain.repository.ProductPriceRepository;
 import com.test.productprices.domain.ProductPrice;
