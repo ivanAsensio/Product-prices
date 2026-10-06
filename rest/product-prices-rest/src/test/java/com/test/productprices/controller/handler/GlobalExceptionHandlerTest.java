@@ -3,7 +3,6 @@ package com.test.productprices.controller.handler;
 import com.test.productprices.application.exception.InvalidProductPriceRequestException;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.rest.dto.ErrorResponse;
-import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
