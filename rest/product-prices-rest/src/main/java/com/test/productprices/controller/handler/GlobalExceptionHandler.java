@@ -2,11 +2,14 @@ package com.test.productprices.controller.handler;
 
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.application.exception.InvalidProductPriceRequestException;
-import com.test.productprices.domain.ErrorResponse;
+import com.test.productprices.rest.dto.ErrorResponse;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.logging.Logger;
 
@@ -48,6 +51,22 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(
                         HttpStatus.BAD_REQUEST.value(),
+                        INVALID_PRODUCT_PRICE_REQUEST_CODE,
+                        exception.getMessage()
+                ));
+    }
+
+    @ExceptionHandler({
+            MethodArgumentTypeMismatchException.class,
+            MissingServletRequestParameterException.class,
+            ConstraintViolationException.class
+    })
+    public ResponseEntity<ErrorResponse> handleBadRequest(Exception exception) {
+
+        return ResponseEntity
+                .badRequest()
+                .body(new ErrorResponse(
+                        400,
                         INVALID_PRODUCT_PRICE_REQUEST_CODE,
                         exception.getMessage()
                 ));

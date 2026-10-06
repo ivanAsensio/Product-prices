@@ -1,7 +1,7 @@
 package com.test.productprices.controller.mapper;
 
 import com.test.productprices.application.dto.ProductPriceQueryDto;
-import com.test.productprices.domain.PriceRetrieved;
+import com.test.productprices.rest.dto.PriceRetrieved;
 import lombok.NoArgsConstructor;
 
 /**
