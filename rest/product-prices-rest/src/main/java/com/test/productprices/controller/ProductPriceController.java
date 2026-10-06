@@ -7,7 +7,6 @@ import com.test.productprices.controller.mapper.PriceMapper;
 import com.test.productprices.rest.dto.PriceRetrieved;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +27,7 @@ public class ProductPriceController implements PricesApi {
     ) {
         ProductPriceQueryDto productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
 
-        return new ResponseEntity<>(PriceMapper.toProductPriceDto(productPrice), HttpStatus.OK);
+        return ResponseEntity.ok(PriceMapper.toProductPriceDto(productPrice));
     }
 
 }

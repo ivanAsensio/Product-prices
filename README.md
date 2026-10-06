@@ -146,7 +146,7 @@ The REST API follows an **API First** approach, using **OpenAPI 3.0.3** as the c
 
 The API contract is defined in:
 
-`rest/src/main/resources/api/rest-productprices.yaml`
+`rest/product-prices-rest/src/main/resources/api/rest-productprices.yaml`
 
 The REST API interfaces and models are generated from the OpenAPI specification. This ensures that the implementation remains aligned with the documented API contract and reduces boilerplate code.
 
@@ -158,7 +158,7 @@ All request parameters are defined as **required**:
 
 The API exposes the following endpoint:
 
-- `GET /prices` → Retrieves the applicable product price.
+- `GET /v1/prices` → Retrieves the applicable product price.
 
 The endpoint follows standard HTTP semantics:
 
