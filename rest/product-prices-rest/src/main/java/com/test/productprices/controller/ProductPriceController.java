@@ -2,6 +2,7 @@ package com.test.productprices.controller;
 
 import com.test.productprices.api.PricesApi;
 import com.test.productprices.application.ProductPriceRetriever;
+import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.controller.mapper.PriceMapper;
 import com.test.productprices.domain.PriceRetrieved;
 import com.test.productprices.domain.ProductPrice;
@@ -26,7 +27,7 @@ public class ProductPriceController implements PricesApi {
             @RequestParam(value = "productId") Long productId,
             @RequestParam(value = "brandId") Long brandId
     ) {
-        ProductPrice productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
+        ProductPriceQueryDto productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
 
         return new ResponseEntity<>(PriceMapper.toProductPriceDto(productPrice), HttpStatus.OK);
     }

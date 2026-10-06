@@ -1,6 +1,7 @@
 package com.test.productprices.application;
 
-import com.test.productprices.application.exception.InvalidProductPriceRequestException;
+import com.test.productprices.application.dto.ProductPriceQueryDto;
+import com.test.productprices.application.mapper.ProductPriceQueryMapper;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
 import com.test.productprices.domain.repository.ProductPriceRepository;
 import com.test.productprices.domain.ProductPrice;
@@ -25,12 +26,10 @@ public class ProductPriceRetriever {
      * @param productId the product id
      * @return the product price retrieved from the system. Could be empty in case of not exist
      */
-    public ProductPrice getProductPrice(LocalDateTime date, Long brandId, Long productId) {
-        if (date == null || brandId == null || productId == null) {
-            throw new InvalidProductPriceRequestException("Date, brandId and productId cannot be null");
-        }
-
-        return productPriceRepository.getProductPrice(date, productId, brandId)
+    public ProductPriceQueryDto getProductPrice(LocalDateTime date, Long brandId, Long productId) {
+        ProductPrice productPrice = productPriceRepository.getProductPrice(date, productId, brandId)
                 .orElseThrow(() -> new ProductPriceNotFoundException("There is no product price retrieved"));
+
+        return ProductPriceQueryMapper.toProductPriceQueryDto(productPrice);
     }
 }

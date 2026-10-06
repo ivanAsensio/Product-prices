@@ -1,5 +1,6 @@
 package com.test.productprices.controller.mapper;
 
+import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.domain.PriceRetrieved;
 import com.test.productprices.domain.ProductPrice;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,7 @@ class PriceMapperTest {
     @Test
     void test_toProductPriceDto_ok() {
         // Given
-        ProductPrice productPrice = ProductPrice.builder()
+        ProductPriceQueryDto productPrice = ProductPriceQueryDto.builder()
                 .productId(35455L)
                 .brandId(1L)
                 .price(new BigDecimal("25.45"))

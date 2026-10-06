@@ -36,6 +36,7 @@ paths:
           schema:
             type: integer
             format: int64
+            minimum: 1
             example: 12345
         - name: brandId
           in: query
@@ -44,6 +45,7 @@ paths:
           schema:
             type: integer
             format: int64
+            minimum: 1
             example: 1
       responses:
         '200':
@@ -97,15 +99,18 @@ components:
         productId:
           type: integer
           format: int64
+          minimum: 1
           example: 1
         brandId:
           type: integer
           format: int64
+          minimum: 1
           example: 1
         price:
           type: number
           format: double
           x-field-type: BigDecimal
+          minimum: 0.0
           example: 99.99
         currency:
           type: string
@@ -113,6 +118,7 @@ components:
         feeId:
           type: integer
           format: int64
+          minimum: 1
           example: 1
         startDate:
           type: string

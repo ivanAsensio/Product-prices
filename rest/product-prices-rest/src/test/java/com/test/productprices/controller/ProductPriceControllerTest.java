@@ -1,6 +1,7 @@
 package com.test.productprices.controller;
 
 import com.test.productprices.application.ProductPriceRetriever;
+import com.test.productprices.application.dto.ProductPriceQueryDto;
 import com.test.productprices.domain.PriceRetrieved;
 import com.test.productprices.domain.ProductPrice;
 import com.test.productprices.domain.exception.ProductPriceNotFoundException;
@@ -34,7 +35,7 @@ class ProductPriceControllerTest {
         Long productId = 35455L;
         Long brandId = 1L;
 
-        ProductPrice productPrice = ProductPrice.builder()
+        ProductPriceQueryDto productPrice = ProductPriceQueryDto.builder()
                 .productId(productId)
                 .brandId(brandId)
                 .price(new BigDecimal("25.45"))
