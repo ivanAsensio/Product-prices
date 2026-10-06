@@ -8,8 +8,6 @@
     </parent>
     <artifactId>rest</artifactId>
     <packaging>pom</packaging>
-    <name>Archetype - rest</name>
-    <url>http://maven.apache.org</url>
     <modules>
         <module>product-prices-rest</module>
     </modules>
