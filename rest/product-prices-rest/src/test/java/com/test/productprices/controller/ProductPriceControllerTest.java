@@ -43,7 +43,7 @@ class ProductPriceControllerTest {
                 .endDate(LocalDateTime.of(2020, 6, 14, 18, 30))
                 .feeId(2L).build();
 
-        Mockito.when(productPriceRetriever.getProductPrice(datetime, productId, brandId))
+        Mockito.when(productPriceRetriever.getProductPrice(datetime, brandId, productId))
                 .thenReturn(productPrice);
 
         // When
@@ -64,17 +64,17 @@ class ProductPriceControllerTest {
         assertEquals(LocalDateTime.of(2020, 6, 14, 18, 30), result.getEndDate());
         assertEquals(2L, result.getFeeId());
 
-        Mockito.verify(productPriceRetriever).getProductPrice(datetime, productId, brandId);
+        Mockito.verify(productPriceRetriever).getProductPrice(datetime, brandId, productId);
     }
 
     @Test
-    void shouldPropagateExceptionWhenProductPriceCannotBeRetrieved() {
+    void test_getProductPrice_retrieveProductPrice_notfound() {
         // Given
         LocalDateTime datetime = LocalDateTime.of(2020, 6, 14, 16, 0);
         Long productId = 35455L;
         Long brandId = 1L;
 
-        Mockito.when(productPriceRetriever.getProductPrice(datetime, productId, brandId))
+        Mockito.when(productPriceRetriever.getProductPrice(datetime, brandId, productId))
                 .thenThrow(new ProductPriceNotFoundException("Product price is not found"));
 
         // When / Then
@@ -87,7 +87,7 @@ class ProductPriceControllerTest {
                 )
         );
 
-        Mockito.verify(productPriceRetriever).getProductPrice(datetime, productId, brandId);
+        Mockito.verify(productPriceRetriever).getProductPrice(datetime, brandId, productId);
     }
 
 }
