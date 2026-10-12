@@ -38,8 +38,8 @@ public class H2ProductPriceRepository implements ProductPriceRepository {
 
             ps.setTimestamp(1, sqlTimestamp);
             ps.setTimestamp(2, sqlTimestamp);
-            ps.setLong(3, brandId);
-            ps.setLong(4, productId);
+            ps.setLong(3, productId);
+            ps.setLong(4, brandId);
 
             return ps;
         };

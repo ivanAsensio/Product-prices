@@ -25,7 +25,7 @@ public class ProductPriceController implements PricesApi {
             @RequestParam(value = "productId") Long productId,
             @RequestParam(value = "brandId") Long brandId
     ) {
-        ProductPriceQueryDto productPrice = productPriceRetriever.getProductPrice(datetime, productId, brandId);
+        ProductPriceQueryDto productPrice = productPriceRetriever.getProductPrice(datetime, brandId, productId);
 
         return ResponseEntity.ok(PriceMapper.toProductPriceDto(productPrice));
     }
